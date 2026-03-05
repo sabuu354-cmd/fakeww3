@@ -13,6 +13,7 @@
       --accent: #a855f7;
       --accent-dark: #7e22ce;
       --green: #22c55e;
+      --red: #ef4444;
       --text: #e0e0ff;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -26,31 +27,57 @@
         radial-gradient(circle at 90% 80%, rgba(34,197,94,0.06) 0%, transparent 35%);
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    header { text-align: center; padding: 80px 20px 60px; background: linear-gradient(180deg, rgba(168,85,247,0.08) 0%, transparent 70%); }
+    header { text-align: center; padding: 120px 20px 80px; background: linear-gradient(180deg, rgba(168,85,247,0.10) 0%, transparent 70%); }
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 5.5rem;
+      font-size: 6rem;
       background: linear-gradient(90deg, #c084fc, #a855f7, #7e22ce);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 16px;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
     }
-    .tagline { font-size: 1.6rem; color: #a1a1ff; margin-bottom: 32px; }
+    .tagline { font-size: 1.8rem; color: #a1a1ff; margin-bottom: 24px; }
+    .fomo-alert {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--red);
+      margin: 20px 0 30px;
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.75; } }
+    .launch-notice {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      color: var(--green);
+      background: rgba(34,197,94,0.12);
+      border: 2px solid var(--green);
+      border-radius: 16px;
+      padding: 20px 40px;
+      display: inline-block;
+      margin: 30px auto;
+      box-shadow: 0 0 30px rgba(34,197,94,0.4);
+      animation: glow-green 3s infinite alternate;
+    }
+    @keyframes glow-green { from { box-shadow: 0 0 20px rgba(34,197,94,0.4); } to { box-shadow: 0 0 50px rgba(34,197,94,0.7); } }
     .btn-buy {
       display: inline-block;
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: white;
-      font-size: 1.4rem;
-      font-weight: 600;
-      padding: 18px 48px;
-      border-radius: 50px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 22px 60px;
+      border-radius: 60px;
       text-decoration: none;
-      box-shadow: 0 10px 30px rgba(168,85,247,0.3);
+      box-shadow: 0 12px 40px rgba(168,85,247,0.4);
       transition: all 0.3s;
+      margin: 30px 0;
     }
-    .btn-buy:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(168,85,247,0.5); }
+    .btn-buy:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(168,85,247,0.6);
+    }
     .sections {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -71,28 +98,29 @@
       margin-bottom: 20px;
       font-size: 1.8rem;
     }
-    .socials { text-align: center; margin: 60px 0; }
+    .socials { text-align: center; margin: 80px 0 40px; }
     .social-btn {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       background: rgba(168,85,247,0.15);
       color: white;
-      padding: 14px 32px;
+      padding: 16px 36px;
       border-radius: 50px;
-      margin: 0 12px 16px;
+      margin: 0 16px 20px;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       transition: all 0.3s;
     }
-    .social-btn:hover { background: var(--accent); transform: translateY(-3px); }
+    .social-btn:hover { background: var(--accent); transform: translateY(-4px); }
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px 40px;
       color: #777799;
-      font-size: 0.95rem;
+      font-size: 1rem;
       border-top: 1px solid rgba(168,85,247,0.1);
     }
+    .fomo-text { color: var(--green); font-weight: 600; font-size: 1.2rem; margin: 16px 0; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -101,41 +129,52 @@
   <header>
     <h1>$FAKEWW3</h1>
     <div class="tagline">WW3 is FAKE • Peace is Coming • Pump the Peace ✌️🌍</div>
-    <a href="https://pump.fun" class="btn-buy" target="_blank">BUY $FAKEWW3 NOW</a>
+    
+    <div class="fomo-alert">LAUNCHING THIS FRIDAY</div>
+    
+    <div class="launch-notice">COMING SOON – FRIDAY</div>
+    
+    <p class="fomo-text">The fake war narrative is crumbling. Peace is coming.<br>
+    Join the Peace Army before launch day for early role + advantage.<br>
+    Countdown to truth. Don't miss it.</p>
+    
+    <a href="https://pump.fun" class="btn-buy" target="_blank">PREPARE FOR LAUNCH</a>
   </header>
 
   <div class="sections">
-    <!-- UPDATED STORY SECTION -->
     <div class="card">
       <h2><i class="fas fa-scroll"></i> The Story</h2>
-      <p>We all see the headlines: “US-Iran direct strikes”, “WW3 imminent”, “missiles flying”. Same script, different year. But this time the timing is too perfect.</p>
-      <p>While the world panics and scrolls, big crypto wallets are quietly fleeing Dubai — the famous zero-tax paradise where whales parked billions. At the exact same moment, Trump and his team are openly pushing for massive crypto moves: national Bitcoin reserves, lighter regulations, America as the new crypto capital.</p>
-      <p>This isn’t war. This is distraction. Classic misdirection while the real game — repositioning billions in crypto and setting up the next big power shift — happens behind the curtain. The entire planet is sleeping on it.</p>
-      <p>$FAKEWW3 is the coin that sees through the noise. We’re betting against fear and on peace. When the fake war narrative finally collapses, this is the one that moons.</p>
+      <p>They said WW3 starts today… again. Iran vs everyone. Missiles flying. Panic everywhere.</p>
+      <p>Except… it’s all fake. Staged. Scripted. Hollywood-tier drama to keep us distracted and glued to screens.</p>
+      <p><strong>This isn’t war. This is distraction.</strong> Big wallets repositioning while the world sleeps on it.</p>
+      <p class="fomo-text">$FAKEWW3 sees through the noise. Bet against fear. Bet on peace.<br>
+      When the fake narrative collapses → massive pump incoming. Don’t regret missing it.</p>
       <p><strong>Peace Soon = MOON Soon.</strong></p>
     </div>
 
     <div class="card">
       <h2><i class="fas fa-chart-pie"></i> Tokenomics</h2>
-      <ul style="list-style:none; padding-left:0; line-height:2;">
+      <ul style="list-style:none; padding-left:0; line-height:2.2; font-size:1.1rem;">
         <li>✓ Total Supply: 1,000,000,000</li>
         <li>✓ LP: 100% burned</li>
         <li>✓ Taxes: 0% buy / 0% sell</li>
         <li>✓ Contract: Renounced</li>
         <li>✓ Fair launch – no team tokens</li>
+        <li class="fomo-text">✓ Launching Friday – early holders win the peace pump</li>
       </ul>
     </div>
 
     <div class="card">
       <h2><i class="fas fa-users"></i> Join the Peace Army</h2>
-      <p>Telegram: <a href="https://t.me/+20nBJ9reIbVmY2Nk" style="color:var(--accent);">t.me/+20nBJ9reIbVmY2Nk</a></p>
+      <p>Telegram: <a href="https://t.me/+b1d4ggQJOhZjNmI0" style="color:var(--accent);">t.me/+b1d4ggQJOhZjNmI0</a> <span class="fomo-text">(join now – exploding on Friday)</span></p>
       <p>X: <a href="https://x.com/FakeWW3Coin" style="color:var(--accent);">@FakeWW3Coin</a></p>
-      <p>DexScreener / Pump.fun: <a href="https://x.com/FakeWW3Coin" style="color:var(--accent);">FAKEWW3</a></p>>
+      <p>Website: <a href="https://sabuu354-cmd.github.io/fakeww3/" style="color:var(--accent);">sabuu354-cmd.github.io/fakeww3</a></p>
+      <p class="fomo-text mt-4">Launching Friday → first 100 in TG get Peace Role + early bragging rights. Be ready.</p>
     </div>
   </div>
 
   <div class="socials">
-    <a href="https://t.me/+20nBJ9reIbVmY2Nk" class="social-btn" target="_blank"><i class="fab fa-telegram-plane"></i> Join Telegram</a>
+    <a href="https://t.me/+b1d4ggQJOhZjNmI0" class="social-btn" target="_blank"><i class="fab fa-telegram-plane"></i> Join Telegram</a>
     <a href="https://x.com/FakeWW3Coin" class="social-btn" target="_blank"><i class="fab fa-x-twitter"></i> Follow on X</a>
   </div>
 
@@ -145,6 +184,4 @@
 </div>
 
 </body>
-
 </html>
-
