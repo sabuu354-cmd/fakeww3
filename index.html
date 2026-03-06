@@ -30,8 +30,8 @@
     header { text-align: center; padding: 80px 16px 60px; }
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3.8rem, 10vw, 7.5rem);
-      line-height: 0.9;
+      font-size: clamp(3.8rem, 12vw, 8rem);
+      line-height: 0.85;
       background: linear-gradient(90deg, #c084fc, #a855f7, #7e22ce);
       -webkit-background-clip: text;
       background-clip: text;
@@ -44,14 +44,14 @@
     .fomo-alert {
       font-size: clamp(2rem, 6vw, 2.8rem);
       font-weight: 700;
-      color: var(--red);
+      color: var(--green);
       margin: 20px 0 30px;
       animation: pulse 2.5s infinite;
     }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.75; } }
     .countdown {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3rem, 9vw, 5rem);
+      font-size: clamp(3rem, 10vw, 5.5rem);
       color: var(--green);
       background: rgba(34,197,94,0.12);
       border: 3px solid var(--green);
@@ -77,7 +77,7 @@
       cursor: pointer;
     }
     .btn-buy:hover, .btn-remind:hover { transform: translateY(-6px) scale(1.05); }
-    .btn-remind { background: linear-gradient(135deg, #10b981, #059669); }
+    .btn-buy.live { background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 0 30px rgba(34,197,94,0.6); }
     .sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 60px 0; }
     .card { background: var(--card); border-radius: 16px; padding: 28px; border: 1px solid rgba(168,85,247,0.15); }
     .card h2 { font-family: 'Orbitron', sans-serif; color: var(--accent); margin-bottom: 20px; font-size: 1.7rem; }
@@ -93,13 +93,17 @@
     <h1>$FAKEWW3</h1>
     <div class="tagline">WW3 is FAKE • Peace is Coming • Pump the Peace ✌️🌍</div>
     
-    <div class="fomo-alert">LAUNCHING TODAY</div>
-    <div class="countdown" id="countdown">00:00:00</div>
+    <div class="fomo-alert">LIVE NOW!</div>
+    <div class="countdown">🚀 LIVE ON PUMP.FUN</div>
     
-    <p class="text-green-400 text-lg mt-6">The fake war ends today. Peace pumps now.<br>Be early. Don't miss it.</p>
+    <p class="text-green-400 text-lg mt-6">The fake war narrative is over.  
+    Peace pump is live.  
+    Join the pump now!</p>
     
-    <a href="https://pump.fun" class="btn-buy" target="_blank" id="buyBtn">BUY NOW – LIVE SOON</a>
-    <button class="btn-remind" id="remindBtn">Remind Me at 17:30 UTC</button>
+    <div class="btn-group">
+      <a href="https://pump.fun/coin/HaWYXTwi17x6iegtQfvnAh3WUU2phNZvUrCqDCkmpump" class="btn-buy live" target="_blank">BUY $FAKEWW3 NOW</a>
+      <button class="btn-remind" id="remindBtn">Remind Me for Next Update</button>
+    </div>
   </header>
 
   <div class="sections">
@@ -108,7 +112,8 @@
       <p>They said WW3 starts today… again. Iran vs everyone. Missiles flying. Panic everywhere.</p>
       <p>Except… it’s all fake. Staged. Scripted. Hollywood-tier drama to keep us distracted.</p>
       <p><strong>This isn’t war. This is distraction.</strong> Big wallets repositioning while the world sleeps on it.</p>
-      <p class="text-green-400 font-semibold">$FAKEWW3 sees through the noise. Bet against fear. Bet on peace.<br>Launching today — when the fake narrative collapses, the real pump begins.</p>
+      <p class="text-green-400 font-semibold">$FAKEWW3 saw through the noise. We bet against fear. We bet on peace.<br>
+      The pump is live — join before it’s too late.</p>
     </div>
 
     <div class="card">
@@ -119,7 +124,7 @@
         <li>✓ Taxes: 0% buy / 0% sell</li>
         <li>✓ Contract: Renounced</li>
         <li>✓ Fair launch – no team tokens</li>
-        <li class="text-green-400">✓ Launching today – early holders win</li>
+        <li class="text-green-400">✓ LIVE NOW – early holders pumping</li>
       </ul>
     </div>
 
@@ -127,7 +132,7 @@
       <h2><i class="fas fa-users"></i> Join the Peace Army</h2>
       <p>Telegram: <a href="https://t.me/+b1d4ggQJOhZjNmI0" style="color:var(--accent);">t.me/+b1d4ggQJOhZjNmI0</a></p>
       <p>X: <a href="https://x.com/FakeWW3Coin" style="color:var(--accent);">@FakeWW3Coin</a></p>
-      <p class="text-green-400 mt-4">Launching today → First 100 members get Peace Role + early advantage.</p>
+      <p class="text-green-400 mt-4">LIVE NOW → First 100 buyers get Peace Role + early bragging rights.</p>
     </div>
   </div>
 
@@ -142,26 +147,7 @@
 </div>
 
 <script>
-// Launch time: TODAY Friday March 6, 2026 17:30 UTC (adjusted to current date)
-const launchTime = new Date("2026-03-06T17:30:00Z").getTime();
-
-function updateTimer() {
-  const diff = launchTime - Date.now();
-  if (diff <= 0) {
-    document.getElementById('countdown').innerHTML = "🚀 LIVE NOW!";
-    document.getElementById('buyBtn').textContent = "BUY $FAKEWW3 NOW";
-    document.getElementById('buyBtn').href = "https://pump.fun"; // replace with real link after launch
-    return;
-  }
-  const hours = Math.floor(diff / (1000*60*60));
-  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-  const seconds = Math.floor((diff % (1000*60)) / 1000);
-  document.getElementById('countdown').textContent = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-}
-setInterval(updateTimer, 1000);
-updateTimer();
-
-// Remind Me Button
+// Launch is live – no countdown needed, but keep Remind Me for future updates
 const remindBtn = document.getElementById('remindBtn');
 remindBtn.addEventListener('click', async () => {
   if (!("Notification" in window)) {
@@ -170,16 +156,14 @@ remindBtn.addEventListener('click', async () => {
   }
   const permission = await Notification.requestPermission();
   if (permission === "granted") {
-    alert("Reminder set! You'll get a notification at 17:30 UTC.");
-    const diff = launchTime - Date.now();
-    if (diff > 0) {
-      setTimeout(() => {
-        new Notification("$FAKEWW3 IS LIVE!", {
-          body: "The peace pump begins NOW! Go to pump.fun",
-          icon: "https://via.placeholder.com/100/22c55e/ffffff?text=✌️"
-        });
-      }, diff);
-    }
+    alert("Reminder set for future updates!");
+    // Placeholder – can be updated for next milestone
+    setTimeout(() => {
+      new Notification("$FAKEWW3 Update!", {
+        body: "Check the pump – peace is pumping!",
+        icon: "https://via.placeholder.com/100/22c55e/ffffff?text=✌️"
+      });
+    }, 3600000); // 1 hour example
   } else {
     alert("Permission denied.");
   }
