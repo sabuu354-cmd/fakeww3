@@ -30,7 +30,7 @@
     header { text-align: center; padding: 80px 16px 60px; }
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3.8rem, 9vw, 7rem); /* bigger & responsive */
+      font-size: clamp(3.8rem, 10vw, 7.5rem);
       line-height: 0.9;
       background: linear-gradient(90deg, #c084fc, #a855f7, #7e22ce);
       -webkit-background-clip: text;
@@ -38,11 +38,11 @@
       color: transparent;
       margin-bottom: 12px;
       letter-spacing: -2px;
-      word-break: break-all; /* ensures full visibility on small screens */
+      word-break: break-all;
     }
-    .tagline { font-size: clamp(1.5rem, 4.5vw, 1.9rem); color: #a1a1ff; margin-bottom: 20px; }
+    .tagline { font-size: clamp(1.5rem, 5vw, 2rem); color: #a1a1ff; margin-bottom: 20px; }
     .fomo-alert {
-      font-size: clamp(1.9rem, 5.5vw, 2.5rem);
+      font-size: clamp(2rem, 6vw, 2.8rem);
       font-weight: 700;
       color: var(--red);
       margin: 20px 0 30px;
@@ -51,12 +51,12 @@
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.75; } }
     .countdown {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      font-size: clamp(3rem, 9vw, 5rem);
       color: var(--green);
       background: rgba(34,197,94,0.12);
       border: 3px solid var(--green);
       border-radius: 20px;
-      padding: clamp(16px, 4vw, 24px) clamp(32px, 6vw, 48px);
+      padding: clamp(16px, 5vw, 28px) clamp(32px, 8vw, 60px);
       display: inline-block;
       margin: 30px auto;
       box-shadow: 0 0 40px rgba(34,197,94,0.5);
@@ -66,7 +66,7 @@
       display: inline-block;
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: white;
-      font-size: clamp(1.3rem, 4vw, 1.6rem);
+      font-size: clamp(1.3rem, 5vw, 1.7rem);
       font-weight: 700;
       padding: 18px 50px;
       border-radius: 60px;
@@ -93,13 +93,13 @@
     <h1>$FAKEWW3</h1>
     <div class="tagline">WW3 is FAKE • Peace is Coming • Pump the Peace ✌️🌍</div>
     
-    <div class="fomo-alert">LAUNCHING THIS FRIDAY</div>
+    <div class="fomo-alert">LAUNCHING TODAY</div>
     <div class="countdown" id="countdown">00:00:00</div>
     
-    <p class="text-green-400 text-lg mt-6">The fake war is ending. Peace is coming.<br>Be early or miss the pump.</p>
+    <p class="text-green-400 text-lg mt-6">The fake war ends today. Peace pumps now.<br>Be early. Don't miss it.</p>
     
-    <a href="https://pump.fun" class="btn-buy" target="_blank">PREPARE FOR FRIDAY</a>
-    <button class="btn-remind" id="remindBtn">Remind Me at Launch</button>
+    <a href="https://pump.fun" class="btn-buy" target="_blank" id="buyBtn">BUY NOW – LIVE SOON</a>
+    <button class="btn-remind" id="remindBtn">Remind Me at 17:30 UTC</button>
   </header>
 
   <div class="sections">
@@ -108,7 +108,7 @@
       <p>They said WW3 starts today… again. Iran vs everyone. Missiles flying. Panic everywhere.</p>
       <p>Except… it’s all fake. Staged. Scripted. Hollywood-tier drama to keep us distracted.</p>
       <p><strong>This isn’t war. This is distraction.</strong> Big wallets repositioning while the world sleeps on it.</p>
-      <p class="text-green-400 font-semibold">$FAKEWW3 sees through the noise. Bet against fear. Bet on peace.<br>Launching Friday — when the fake narrative collapses, the real pump begins.</p>
+      <p class="text-green-400 font-semibold">$FAKEWW3 sees through the noise. Bet against fear. Bet on peace.<br>Launching today — when the fake narrative collapses, the real pump begins.</p>
     </div>
 
     <div class="card">
@@ -119,7 +119,7 @@
         <li>✓ Taxes: 0% buy / 0% sell</li>
         <li>✓ Contract: Renounced</li>
         <li>✓ Fair launch – no team tokens</li>
-        <li class="text-green-400">✓ Launching Friday – early holders win</li>
+        <li class="text-green-400">✓ Launching today – early holders win</li>
       </ul>
     </div>
 
@@ -127,7 +127,7 @@
       <h2><i class="fas fa-users"></i> Join the Peace Army</h2>
       <p>Telegram: <a href="https://t.me/+b1d4ggQJOhZjNmI0" style="color:var(--accent);">t.me/+b1d4ggQJOhZjNmI0</a></p>
       <p>X: <a href="https://x.com/FakeWW3Coin" style="color:var(--accent);">@FakeWW3Coin</a></p>
-      <p class="text-green-400 mt-4">Launching Friday → First 100 members get Peace Role + early advantage.</p>
+      <p class="text-green-400 mt-4">Launching today → First 100 members get Peace Role + early advantage.</p>
     </div>
   </div>
 
@@ -142,13 +142,15 @@
 </div>
 
 <script>
-// Launch time: Friday March 7, 2026 17:30 UTC
-const launchTime = new Date("2026-03-07T17:30:00Z").getTime();
+// Launch time: TODAY Friday March 6, 2026 17:30 UTC (adjusted to current date)
+const launchTime = new Date("2026-03-06T17:30:00Z").getTime();
 
 function updateTimer() {
   const diff = launchTime - Date.now();
   if (diff <= 0) {
     document.getElementById('countdown').innerHTML = "🚀 LIVE NOW!";
+    document.getElementById('buyBtn').textContent = "BUY $FAKEWW3 NOW";
+    document.getElementById('buyBtn').href = "https://pump.fun"; // replace with real link after launch
     return;
   }
   const hours = Math.floor(diff / (1000*60*60));
@@ -159,30 +161,27 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 
-// Remind Me Button (browser notification)
+// Remind Me Button
 const remindBtn = document.getElementById('remindBtn');
-
 remindBtn.addEventListener('click', async () => {
   if (!("Notification" in window)) {
-    alert("Notifications not supported in this browser.");
+    alert("Notifications not supported.");
     return;
   }
-
   const permission = await Notification.requestPermission();
   if (permission === "granted") {
-    alert("Reminder set! You'll be notified when launch time arrives.");
-    // Simple timer-based notification (browser must stay open)
+    alert("Reminder set! You'll get a notification at 17:30 UTC.");
     const diff = launchTime - Date.now();
     if (diff > 0) {
       setTimeout(() => {
-        new Notification("$FAKEWW3 LAUNCH TIME!", {
+        new Notification("$FAKEWW3 IS LIVE!", {
           body: "The peace pump begins NOW! Go to pump.fun",
           icon: "https://via.placeholder.com/100/22c55e/ffffff?text=✌️"
         });
       }, diff);
     }
   } else {
-    alert("Notification permission denied.");
+    alert("Permission denied.");
   }
 });
 </script>
