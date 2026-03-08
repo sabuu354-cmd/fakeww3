@@ -24,11 +24,10 @@
       background-image: url('background.png');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;     /* stable on desktop */
+      background-attachment: fixed;
       background-color: #0a0a14;
       position: relative;
     }
-    /* Strong dark overlay for perfect readability */
     body::before {
       content: '';
       position: fixed;
@@ -94,25 +93,57 @@
     .social-btn { display: inline-flex; align-items: center; gap: 12px; background: rgba(168,85,247,0.15); color: white; padding: 16px 38px; border-radius: 50px; margin: 12px; text-decoration: none; font-size: 1.15rem; }
     footer { text-align: center; padding: 70px 20px; color: #777799; font-size: 0.95rem; }
 
-    /* ============================ FIXES ============================ */
-    /* 1. COIN NAME FULLY VISIBLE ON PHONE */
+    /* PHONE FIXES */
     @media (max-width: 768px) {
       h1 {
-        font-size: clamp(2.6rem, 11vw, 5.5rem);   /* smaller min + max so it NEVER overflows */
+        font-size: clamp(2.6rem, 11vw, 5.5rem);
         letter-spacing: -1.5px;
       }
-    }
-
-    /* 2. BACKGROUND IMAGE STABLE ON PHONE + DESKTOP */
-    @media (max-width: 768px) {
       body {
-        background-attachment: scroll;           /* fixed = broken/jittery on mobile → scroll fixes it */
+        background-attachment: scroll;
         background-position: center top;
       }
     }
-    /* Fallback if background.png is missing (prevents white/empty page) */
     body {
-      background-color: #0a0a14;                 /* solid dark base */
+      background-color: #0a0a14;
+    }
+
+    /* Fund section styling – back to original purple/green tones */
+    .wallet-box {
+      background: rgba(168,85,247,0.12);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      word-break: break-all;
+      font-family: monospace;
+      font-size: 1.1rem;
+      text-align: center;
+      border: 2px solid var(--accent);
+    }
+    .copy-btn {
+      margin-top: 10px;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .motivational {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green);
+      margin: 18px 0;
+      line-height: 1.4;
+    }
+    .urgent-text {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--red);
+      margin: 20px 0;
+      text-align: center;
+      animation: pulse 3s infinite;
     }
   </style>
 </head>
@@ -135,6 +166,7 @@
   </header>
 
   <div class="sections">
+    <!-- The Story -->
     <div class="card">
       <h2><i class="fas fa-scroll"></i> The Story</h2>
       <p>They said WW3 starts today… again. Iran vs everyone. Missiles flying. Panic everywhere.</p>
@@ -144,6 +176,7 @@
       Relaunching March 26 — this time we go harder.</p>
     </div>
 
+    <!-- Tokenomics -->
     <div class="card">
       <h2><i class="fas fa-chart-pie"></i> Tokenomics</h2>
       <ul style="list-style:none; padding-left:0; line-height:2.5; font-size:1.08rem;">
@@ -156,11 +189,69 @@
       </ul>
     </div>
 
+    <!-- Join the Peace Army -->
     <div class="card">
       <h2><i class="fas fa-users"></i> Join the Peace Army</h2>
-      <p>Telegram: <a href="https://t.me/+b1d4ggQJOhZjNmI0" style="color:var(--accent);">t.me/+b1d4ggQJOhZjNmI0</a></p>
+      <p>We're building the most based, anti-fear army on Solana. No warmongers, no drama – just pure peace vibes and massive pumps.</p>
+      <ul style="list-style:none; padding-left:0; line-height:2.2; font-size:1.08rem; margin:15px 0;">
+        <li>🚀 Daily fake-war debunk memes & sh*tposts</li>
+        <li>✨ Voice chats roasting fear porn & hyping peace</li>
+        <li>🎁 Giveaways, airdrops & exclusive roles for OGs</li>
+        <li>🏆 Meme contests – win SOL for the funniest peace takes</li>
+        <li class="text-green-400 font-semibold">First 100 joiners after relaunch get "Peace General" role + early alpha</li>
+      </ul>
+      <p class="mt-4">Telegram: <a href="https://t.me/+b1d4ggQJOhZjNmI0" style="color:var(--accent);">t.me/+b1d4ggQJOhZjNmI0</a></p>
       <p>X: <a href="https://x.com/FakeWW3Coin" style="color:var(--accent);">@FakeWW3Coin</a></p>
-      <p class="text-green-400 mt-5">March 26 relaunch → First 100 members get Peace Role + early advantage.</p>
+      <p class="text-green-400 mt-5 font-semibold">March 26 is our D-Day for peace. Join now – spots filling fast!</p>
+    </div>
+
+    <!-- Fund the Peace Pump – Urgent text, but original colors (purple accents, green motivation) -->
+    <div class="card">
+      <h2><i class="fas fa-hand-holding-heart"></i> Fund the Peace Pump – TIME IS CRITICAL!</h2>
+      
+      <p class="urgent-text">⏰ LESS THAN 18 DAYS LEFT ⏰</p>
+      
+      <p class="motivational">The relaunch is locked for March 26 – the window is closing FAST.</p>
+      
+      <p class="motivational">Every SOL you send RIGHT NOW is rocket fuel for the biggest peace pump ever. Early funders become legends when we moon.</p>
+      
+      <p class="motivational" style="color: var(--red); font-size:1.3rem; margin:25px 0;">
+        DON'T MISS THIS – THE TRAIN LEAVES SOON!<br>
+        Send before it's too late or watch from the sidelines.
+      </p>
+      
+      <p class="text-green-400 font-bold" style="font-size:1.2rem; text-align:center; margin:20px 0;">
+        FUND NOW → SECURE YOUR SPOT IN HISTORY
+      </p>
+      
+      <p>Your contribution powers:</p>
+      <ul style="list-style:none; padding-left:0; line-height:2.5; font-size:1.08rem; margin:15px 0;">
+        <li>🔥 Massive marketing raids & viral shill waves</li>
+        <li>🎁 Huge airdrops + giveaways to reward the real ones</li>
+        <li>🏆 Epic peace meme contests with SOL prizes</li>
+        <li>🌍 Keeping the anti-war narrative alive and pumping</li>
+      </ul>
+      
+      <p class="text-green-400 font-semibold">Send any amount of SOL immediately to:</p>
+      
+      <div class="wallet-box" id="walletAddress">
+        Z1qdceWyLMEZBw663a6192KnTxjNsP3wJs1aLBdyYLr
+      </div>
+      
+      <button onclick="copyAddress()" class="copy-btn">📋 Copy Address & Send Now</button>
+      
+      <p style="font-size: 0.95rem; opacity: 0.9; margin: 15px 0;">
+        <strong>Pro tip:</strong> Use Phantom or Solflare → Scan the QR below or copy-paste the address in seconds.
+      </p>
+      
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=Z1qdceWyLMEZBw663a6192KnTxjNsP3wJs1aLBdyYLr" 
+           alt="Donate QR Code" 
+           style="max-width:220px; margin: 0 auto 20px; display:block; border: 8px solid var(--accent); border-radius:12px;">
+      
+      <p class="text-sm opacity-80 mt-4">
+        All funds are transparent on-chain. No team wallets, no rugs – pure community power.<br>
+        Not financial advice • Voluntary vibes only ✌️
+      </p>
     </div>
   </div>
 
@@ -200,6 +291,16 @@ document.getElementById('remindBtn').addEventListener('click', async () => {
     alert("Notification permission denied.");
   }
 });
+
+// Copy Address Function
+function copyAddress() {
+  const address = document.getElementById('walletAddress').textContent.trim();
+  navigator.clipboard.writeText(address).then(() => {
+    alert("✅ Wallet address copied! Open your wallet and send SOL now!");
+  }).catch(() => {
+    alert("Copy failed – please manually copy: " + address);
+  });
+}
 </script>
 
 </body>
