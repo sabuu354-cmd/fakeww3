@@ -19,78 +19,80 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(168,85,247,0.08) 0%, transparent 25%),
-        radial-gradient(circle at 90% 80%, rgba(34,197,94,0.06) 0%, transparent 35%);
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #0a0a14;
+      position: relative;
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-    header { text-align: center; padding: 80px 16px 60px; }
+    /* Strong dark overlay for perfect readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(10,10,20,0.88), rgba(10,10,20,0.82));
+      z-index: -1;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
+    header { text-align: center; padding: 100px 16px 70px; }
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3.8rem, 12vw, 8rem);
+      font-size: clamp(3.8rem, 12vw, 8.5rem);
       line-height: 0.85;
       background: linear-gradient(90deg, #c084fc, #a855f7, #7e22ce);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 12px;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
       word-break: break-all;
     }
-    .tagline { font-size: clamp(1.5rem, 5vw, 2rem); color: #a1a1ff; margin-bottom: 20px; }
+    .tagline { font-size: clamp(1.5rem, 5vw, 2.1rem); color: #a1a1ff; margin-bottom: 20px; }
     .fomo-alert {
-      font-size: clamp(2rem, 6vw, 2.8rem);
+      font-size: clamp(2rem, 6vw, 2.9rem);
       font-weight: 700;
       color: var(--red);
-      margin: 20px 0 30px;
+      margin: 25px 0 35px;
       animation: pulse 2.5s infinite;
     }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.75; } }
     .countdown {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3rem, 10vw, 5.5rem);
+      font-size: clamp(3rem, 10vw, 5.8rem);
       color: var(--green);
       background: rgba(34,197,94,0.12);
       border: 3px solid var(--green);
       border-radius: 20px;
-      padding: clamp(16px, 5vw, 28px) clamp(32px, 8vw, 60px);
+      padding: clamp(18px, 5vw, 30px) clamp(35px, 8vw, 65px);
       display: inline-block;
       margin: 30px auto;
-      box-shadow: 0 0 40px rgba(34,197,94,0.5);
-      white-space: nowrap;
+      box-shadow: 0 0 45px rgba(34,197,94,0.5);
     }
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin: 30px 0;
-    }
+    .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 35px 0; }
     .btn-buy, .btn-remind {
       display: inline-block;
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: white;
-      font-size: clamp(1.3rem, 5vw, 1.7rem);
+      font-size: clamp(1.35rem, 5vw, 1.75rem);
       font-weight: 700;
-      padding: 18px 50px;
+      padding: 19px 52px;
       border-radius: 60px;
       text-decoration: none;
       box-shadow: 0 12px 40px rgba(168,85,247,0.4);
       transition: all 0.3s;
-      margin: 20px 10px;
       cursor: pointer;
     }
     .btn-buy:hover, .btn-remind:hover { transform: translateY(-6px) scale(1.05); }
     .btn-remind { background: linear-gradient(135deg, #10b981, #059669); }
-    .sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 60px 0; }
-    .card { background: var(--card); border-radius: 16px; padding: 28px; border: 1px solid rgba(168,85,247,0.15); }
-    .card h2 { font-family: 'Orbitron', sans-serif; color: var(--accent); margin-bottom: 20px; font-size: 1.7rem; }
-    .socials { text-align: center; margin: 80px 0 40px; }
-    .social-btn { display: inline-flex; align-items: center; gap: 12px; background: rgba(168,85,247,0.15); color: white; padding: 16px 36px; border-radius: 50px; margin: 12px; text-decoration: none; font-size: 1.15rem; }
-    footer { text-align: center; padding: 60px 20px; color: #777799; font-size: 0.95rem; }
+    .sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; margin: 70px 0; }
+    .card { background: var(--card); border-radius: 16px; padding: 30px; border: 1px solid rgba(168,85,247,0.18); }
+    .card h2 { font-family: 'Orbitron', sans-serif; color: var(--accent); margin-bottom: 22px; font-size: 1.75rem; }
+    .socials { text-align: center; margin: 90px 0 50px; }
+    .social-btn { display: inline-flex; align-items: center; gap: 12px; background: rgba(168,85,247,0.15); color: white; padding: 16px 38px; border-radius: 50px; margin: 12px; text-decoration: none; font-size: 1.15rem; }
+    footer { text-align: center; padding: 70px 20px; color: #777799; font-size: 0.95rem; }
   </style>
 </head>
 <body>
@@ -103,7 +105,7 @@
     <div class="fomo-alert">RELAUNCHING MARCH 26</div>
     <div class="countdown" id="countdown">00d 00h</div>
     
-    <p class="text-green-400 text-lg mt-6">The fake war narrative is old news.<br>Peace pump v2 is coming.<br>Be early this time.</p>
+    <p class="text-green-400 text-lg mt-6">The fake war narrative is old news.<br>The real Peace Pump v2 is loading.</p>
     
     <div class="btn-group">
       <a href="https://pump.fun" class="btn-buy" target="_blank">PREPARE FOR MARCH 26</a>
@@ -118,18 +120,18 @@
       <p>Except… it’s all fake. Staged. Scripted. Hollywood-tier drama to keep us distracted.</p>
       <p><strong>This isn’t war. This is distraction.</strong> Big wallets repositioning while the world sleeps on it.</p>
       <p class="text-green-400 font-semibold">$FAKEWW3 sees through the noise. Bet against fear. Bet on peace.<br>
-      Relaunching March 26 — when the fake narrative collapses, the real pump begins.</p>
+      Relaunching March 26 — this time we go harder.</p>
     </div>
 
     <div class="card">
       <h2><i class="fas fa-chart-pie"></i> Tokenomics</h2>
-      <ul style="list-style:none; padding-left:0; line-height:2.4; font-size:1.05rem;">
+      <ul style="list-style:none; padding-left:0; line-height:2.5; font-size:1.08rem;">
         <li>✓ Total Supply: 1,000,000,000</li>
         <li>✓ LP: 100% burned</li>
         <li>✓ Taxes: 0% buy / 0% sell</li>
         <li>✓ Contract: Renounced</li>
         <li>✓ Fair launch – no team tokens</li>
-        <li class="text-green-400">✓ Relaunching March 26 – early holders win big</li>
+        <li class="text-green-400">✓ Relaunching March 26 – bigger seed, stronger pump</li>
       </ul>
     </div>
 
@@ -137,7 +139,7 @@
       <h2><i class="fas fa-users"></i> Join the Peace Army</h2>
       <p>Telegram: <a href="https://t.me/+b1d4ggQJOhZjNmI0" style="color:var(--accent);">t.me/+b1d4ggQJOhZjNmI0</a></p>
       <p>X: <a href="https://x.com/FakeWW3Coin" style="color:var(--accent);">@FakeWW3Coin</a></p>
-      <p class="text-green-400 mt-4">March 26 launch → First 100 members get Peace Role + early advantage.</p>
+      <p class="text-green-400 mt-5">March 26 relaunch → First 100 members get Peace Role + early advantage.</p>
     </div>
   </div>
 
@@ -152,9 +154,8 @@
 </div>
 
 <script>
-// Launch time: March 26, 2026 17:30 UTC
+// Countdown to March 26, 2026 17:30 UTC
 const launchTime = new Date("2026-03-26T17:30:00Z").getTime();
-
 function updateTimer() {
   const diff = launchTime - Date.now();
   if (diff <= 0) {
@@ -174,8 +175,8 @@ document.getElementById('remindBtn').addEventListener('click', async () => {
   const permission = await Notification.requestPermission();
   if (permission === "granted") {
     alert("Reminder set for March 26, 17:30 UTC!");
-    const diff = launchTime - Date.now();
-    if (diff > 0) setTimeout(() => new Notification("$FAKEWW3 RELAUNCH!", { body: "Peace pump v2 starts NOW!", icon: "https://via.placeholder.com/100/22c55e/ffffff?text=✌️" }), diff);
+  } else {
+    alert("Notification permission denied.");
   }
 });
 </script>
