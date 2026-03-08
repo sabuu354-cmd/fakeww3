@@ -1,62 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAKEWW3 Relaunch</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('https://example.com/fakeww3-background.jpg'); /* Replace with your actual background image URL */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Makes background stable (fixed) on desktop */
-            color: white;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$FAKEWW3 – WW3 is FAKE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a14;
+      --card: #141422;
+      --accent: #a855f7;
+      --accent-dark: #7e22ce;
+      --green: #22c55e;
+      --red: #ef4444;
+      --text: #e0e0ff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;     /* stable on desktop */
+      background-color: #0a0a14;
+      position: relative;
+    }
+    /* Strong dark overlay for perfect readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(10,10,20,0.88), rgba(10,10,20,0.82));
+      z-index: -1;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
+    header { text-align: center; padding: 100px 16px 70px; }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3.8rem, 12vw, 8.5rem);
+      line-height: 0.85;
+      background: linear-gradient(90deg, #c084fc, #a855f7, #7e22ce);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 12px;
+      letter-spacing: -3px;
+      word-break: break-all;
+    }
+    .tagline { font-size: clamp(1.5rem, 5vw, 2.1rem); color: #a1a1ff; margin-bottom: 20px; }
+    .fomo-alert {
+      font-size: clamp(2rem, 6vw, 2.9rem);
+      font-weight: 700;
+      color: var(--red);
+      margin: 25px 0 35px;
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.75; } }
+    .countdown {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3rem, 10vw, 5.8rem);
+      color: var(--green);
+      background: rgba(34,197,94,0.12);
+      border: 3px solid var(--green);
+      border-radius: 20px;
+      padding: clamp(18px, 5vw, 30px) clamp(35px, 8vw, 65px);
+      display: inline-block;
+      margin: 30px auto;
+      box-shadow: 0 0 45px rgba(34,197,94,0.5);
+    }
+    .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 35px 0; }
+    .btn-buy, .btn-remind {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      font-size: clamp(1.35rem, 5vw, 1.75rem);
+      font-weight: 700;
+      padding: 19px 52px;
+      border-radius: 60px;
+      text-decoration: none;
+      box-shadow: 0 12px 40px rgba(168,85,247,0.4);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-buy:hover, .btn-remind:hover { transform: translateY(-6px) scale(1.05); }
+    .btn-remind { background: linear-gradient(135deg, #10b981, #059669); }
+    .sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; margin: 70px 0; }
+    .card { background: var(--card); border-radius: 16px; padding: 30px; border: 1px solid rgba(168,85,247,0.18); }
+    .card h2 { font-family: 'Orbitron', sans-serif; color: var(--accent); margin-bottom: 22px; font-size: 1.75rem; }
+    .socials { text-align: center; margin: 90px 0 50px; }
+    .social-btn { display: inline-flex; align-items: center; gap: 12px; background: rgba(168,85,247,0.15); color: white; padding: 16px 38px; border-radius: 50px; margin: 12px; text-decoration: none; font-size: 1.15rem; }
+    footer { text-align: center; padding: 70px 20px; color: #777799; font-size: 0.95rem; }
 
-        .coin-name {
-            font-size: 5vw; /* Responsive font size based on viewport width */
-            max-width: 90%; /* Prevents overflow on small screens */
-            margin: 0 auto;
-            word-wrap: break-word; /* Ensures long words wrap */
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-            border-radius: 8px;
-        }
+    /* ============================ FIXES ============================ */
+    /* 1. COIN NAME FULLY VISIBLE ON PHONE */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: clamp(2.6rem, 11vw, 5.5rem);   /* smaller min + max so it NEVER overflows */
+        letter-spacing: -1.5px;
+      }
+    }
 
-        /* Media query for mobile devices */
-        @media (max-width: 768px) {
-            body {
-                background-attachment: scroll; /* Switch to scroll on mobile for better performance and stability */
-            }
-
-            .coin-name {
-                font-size: 8vw; /* Larger relative size on smaller screens for visibility */
-            }
-        }
-
-        h1 {
-            margin: 20px;
-        }
-
-        p {
-            max-width: 80%;
-            margin: 10px auto;
-        }
-    </style>
+    /* 2. BACKGROUND IMAGE STABLE ON PHONE + DESKTOP */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;           /* fixed = broken/jittery on mobile → scroll fixes it */
+        background-position: center top;
+      }
+    }
+    /* Fallback if background.png is missing (prevents white/empty page) */
+    body {
+      background-color: #0a0a14;                 /* solid dark base */
+    }
+  </style>
 </head>
 <body>
-    <div class="coin-name">FAKEWW3 Coin</div> <!-- Assuming "coin name" refers to this element -->
-    <h1>Welcome to the FAKEWW3 Relaunch</h1>
-    <p>This is a fictional relaunch of the FAKEWW3 project. All content is satirical and not based on real events.</p>
-    <p>Issues fixed: Coin name is now responsive and fully visible on phones. Background image is stable with cover sizing and fixed attachment on desktop, scrolling on mobile for better compatibility.</p>
+
+<div class="container">
+  <header>
+    <h1>$FAKEWW3</h1>
+    <div class="tagline">WW3 is FAKE • Peace is Coming • Pump the Peace ✌️🌍</div>
+    
+    <div class="fomo-alert">RELAUNCHING MARCH 26</div>
+    <div class="countdown" id="countdown">00d 00h</div>
+    
+    <p class="text-green-400 text-lg mt-6">The fake war narrative is old news.<br>The real Peace Pump v2 is loading.</p>
+    
+    <div class="btn-group">
+      <a href="https://pump.fun" class="btn-buy" target="_blank">PREPARE FOR MARCH 26</a>
+      <button class="btn-remind" id="remindBtn">Remind Me on March 26</button>
+    </div>
+  </header>
+
+  <div class="sections">
+    <div class="card">
+      <h2><i class="fas fa-scroll"></i> The Story</h2>
+      <p>They said WW3 starts today… again. Iran vs everyone. Missiles flying. Panic everywhere.</p>
+      <p>Except… it’s all fake. Staged. Scripted. Hollywood-tier drama to keep us distracted.</p>
+      <p><strong>This isn’t war. This is distraction.</strong> Big wallets repositioning while the world sleeps on it.</p>
+      <p class="text-green-400 font-semibold">$FAKEWW3 sees through the noise. Bet against fear. Bet on peace.<br>
+      Relaunching March 26 — this time we go harder.</p>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-chart-pie"></i> Tokenomics</h2>
+      <ul style="list-style:none; padding-left:0; line-height:2.5; font-size:1.08rem;">
+        <li>✓ Total Supply: 1,000,000,000</li>
+        <li>✓ LP: 100% burned</li>
+        <li>✓ Taxes: 0% buy / 0% sell</li>
+        <li>✓ Contract: Renounced</li>
+        <li>✓ Fair launch – no team tokens</li>
+        <li class="text-green-400">✓ Relaunching March 26 – bigger seed, stronger pump</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-users"></i> Join the Peace Army</h2>
+      <p>Telegram: <a href="https://t.me/+b1d4ggQJOhZjNmI0" style="color:var(--accent);">t.me/+b1d4ggQJOhZjNmI0</a></p>
+      <p>X: <a href="https://x.com/FakeWW3Coin" style="color:var(--accent);">@FakeWW3Coin</a></p>
+      <p class="text-green-400 mt-5">March 26 relaunch → First 100 members get Peace Role + early advantage.</p>
+    </div>
+  </div>
+
+  <div class="socials">
+    <a href="https://t.me/+b1d4ggQJOhZjNmI0" class="social-btn" target="_blank"><i class="fab fa-telegram-plane"></i> Join Telegram</a>
+    <a href="https://x.com/FakeWW3Coin" class="social-btn" target="_blank"><i class="fab fa-x-twitter"></i> Follow on X</a>
+  </div>
+
+  <footer>
+    Not financial advice • Pure vibes & peace pumps only • March 2026
+  </footer>
+</div>
+
+<script>
+// Countdown to March 26, 2026 17:30 UTC
+const launchTime = new Date("2026-03-26T17:30:00Z").getTime();
+function updateTimer() {
+  const diff = launchTime - Date.now();
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = "🚀 RELAUNCH WINDOW OPEN!";
+    return;
+  }
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  document.getElementById('countdown').textContent = `${days}d ${hours}h`;
+}
+setInterval(updateTimer, 3600000);
+updateTimer();
+
+// Remind Me Button
+document.getElementById('remindBtn').addEventListener('click', async () => {
+  if (!("Notification" in window)) return alert("Notifications not supported.");
+  const permission = await Notification.requestPermission();
+  if (permission === "granted") {
+    alert("Reminder set for March 26, 17:30 UTC!");
+  } else {
+    alert("Notification permission denied.");
+  }
+});
+</script>
+
 </body>
 </html>
